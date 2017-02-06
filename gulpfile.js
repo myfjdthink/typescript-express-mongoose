@@ -1,8 +1,9 @@
 const gulp = require("gulp");
 const del = require("del");
-const tsc = require("gulp-typescript-compiler");
+const ts = require("gulp-typescript");
 const nodemon = require("gulp-nodemon");
 const tslint = require("gulp-tslint");
+const tsProject = ts.createProject("tsconfig.json");
 
 gulp.task("default", ["compile", "watch", "nodemon"]);
 
@@ -11,16 +12,9 @@ gulp.task("watch", function () {
 });
 
 gulp.task("compile", function () {
-  return gulp
-    .src("src/**/*.ts")
-    .pipe(tsc({
-      module: "commonjs",
-      experimentalDecorators: true,
-      target: "es6",
-      sourcemap: true,
-      logErrors: true
-    }))
-    .pipe(gulp.dest("build"));
+  return tsProject.src()
+    .pipe(tsProject())
+    .js.pipe(gulp.dest("build"));
 });
 
 gulp.task('clean', function () {
