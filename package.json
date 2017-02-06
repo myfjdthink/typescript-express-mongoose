@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node ./build/app.js",
     "build": "gulp compile",
+    "check": "tslint ",
     "test": "gulp compile"
   },
   "dependencies": {
@@ -35,8 +36,10 @@
     "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-nodemon": "^2.2.1",
+    "gulp-tslint": "^7.1.0",
     "gulp-typescript-compiler": "^1.0.1",
     "mocha": "^3.2.0",
-    "should": "^11.1.2"
+    "should": "^11.1.2",
+    "tslint": "^4.4.2"
   }
 }

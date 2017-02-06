@@ -1,16 +1,16 @@
 import mongoose = require('mongoose');
-import * as express from "express";
+import * as express from 'express';
 const bodyParser = require('body-parser');
-import Logger  from "./Logger";
-import {RouterMap} from "./app/decorators/Web";
-import config from "./config/config";
+import Logger  from './Logger';
+import {RouterMap} from './app/decorators/Web';
+import config from './config/config';
 
 // let a = express.Router()
 const fs = require('fs');
 const join = require('path').join;
 const port = config.app.port;
 class ServerLoader {
-  //static __DecoratedRouters:Map<{target:any, method:string, path:string}, Function | Function[]> = new Map()
+  // static __DecoratedRouters:Map<{target:any, method:string, path:string}, Function | Function[]> = new Map()
   private router: any
   private app: express.Application
 
@@ -28,13 +28,14 @@ class ServerLoader {
 
   connectDB() {
     const options = {server: {socketOptions: {keepAlive: 1}}};
-    var uri = config.db_uri;
+    const uri = config.db_uri;
     Logger.info(`connect to  ${uri} ...`);
     return mongoose.connect(uri, options).connection;
   }
 
   config() {
     Logger.info('config...');
+    this.errorHandle()
     this.initMiddleware()
     this.initControllers()
     this.registerRouters()
@@ -52,6 +53,13 @@ class ServerLoader {
         Logger.info('use middleware ', file);
         this.app.use(require(join(middlewares, file)))
       });
+  }
+
+  errorHandle() {
+    this.app.use(function (err, req, res, next) {
+      Logger.error(err.stack);
+      res.status(500).send('Something broke!');
+    });
   }
 
   /**
@@ -88,7 +96,7 @@ class ServerLoader {
   }
 
   static initialize() {
-    Logger.info('Initialize server');
+    Logger.info('Initialize server')
     return new ServerLoader().start()
   }
 }
