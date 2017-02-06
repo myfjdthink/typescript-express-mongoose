@@ -23,10 +23,6 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-import routes from './config/routes'
-
-routes(app)
-
 // Bootstrap models
 const models = join(__dirname, 'app/models');
 fs.readdirSync(models)
