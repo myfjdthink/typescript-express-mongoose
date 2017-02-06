@@ -20,8 +20,8 @@ class UserAccountController extends BaseController {
     path: '/user/login'
   })
   async aotoRoute(req: e.Request, res) {
-    var id = req.query.id;
-    var abc = req.param('abc');
+    const id = req.query.id;
+    const abc = req.param('abc');
     console.log('UserAccountController', 'aotoRoute', id, abc);
     let result = await timeOut(10);
     res.send(result);

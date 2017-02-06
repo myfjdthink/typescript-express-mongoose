@@ -16,15 +16,15 @@ gulp.task("compile", function () {
     .pipe(tsc({
       module: "commonjs",
       experimentalDecorators: true,
-      target: "ES6",
-      sourcemap: false,
+      target: "es6",
+      sourcemap: true,
       logErrors: true
     }))
     .pipe(gulp.dest("build"));
 });
 
 gulp.task('clean', function () {
-  return del(['src/**/lib']);
+  return del(['build']);
 });
 
 gulp.task("nodemon", function () {

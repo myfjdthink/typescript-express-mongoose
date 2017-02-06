@@ -4,11 +4,8 @@
 import e = require('express');
 
 class BaseController {
-
-  aotoRoute(req:e.Request, res) {
+  aotoRoute(req: e.Request, res) {
 
   }
 }
-
-//const user = new BaseController()
 export default BaseController

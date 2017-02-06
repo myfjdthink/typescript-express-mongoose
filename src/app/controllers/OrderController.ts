@@ -19,7 +19,7 @@ class OrderController {
     method: 'get',
     path: '/order/awaitTest'
   })
-  async awaitTest(req:e.Request, res) {
+  async awaitTest(req: e.Request, res) {
     console.log('OrderController', 'awaitTest');
     let result = await timeOut(10);
     res.send(result);
@@ -29,7 +29,7 @@ class OrderController {
     method: 'get',
     path: '/order/findOneWithClass'
   })
-  async findOneWithClass(req:e.Request, res:e.Response) {
+  async findOneWithClass(req: e.Request, res: e.Response) {
     let result = await Order.findById('54ce6d7779337f164b36504a')
     result.amount
     res.status(200).json(result);

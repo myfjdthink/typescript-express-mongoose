@@ -16,7 +16,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -42,30 +42,6 @@ connect()
 function listen() {
   if (app.get('env') === 'test') return;
   app.listen(port);
-  //import Order from './app/models/Order'
-  //async function main() {
-  //  let kittens = await Order.findById2('54ce6d7779337f164b36504a')
-  //  console.log('kittens', kittens);
-  //}
-  //
-  //function main2() {
-  //  Order.findById2('54ce6d7779337f164b36504a').then(function (order) {
-  //    console.log('aaaa', order.amount);
-  //    console.log('aaaa', order);
-  //  }).catch(function (err) {
-  //    console.log('aaaa err', err);
-  //  })
-  //}
-  //
-  //main()
-  //main2()
-
-  //async function main() {
-  //  console.log('hehe', user.findOne({}).exec);
-  //  let kittens = await user.findOne({}).exec()
-  //  console.log('kittens', kittens);
-  //}
-  //main()
   console.log('Express app started on port ' + port);
 }
 
