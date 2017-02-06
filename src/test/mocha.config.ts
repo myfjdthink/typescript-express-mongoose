@@ -2,9 +2,9 @@
 'use strict'
 
 process.env.NODE_ENV = 'test'
-import app from "../app";
-import config from "../config/config";
-import mongoose = require("mongoose");
+import app from '../app';
+import config from '../config/config';
+import mongoose = require('mongoose');
 mongoose.set('debug', true);
 function ObjectId(id) {
   return new mongoose.Types.ObjectId(id)

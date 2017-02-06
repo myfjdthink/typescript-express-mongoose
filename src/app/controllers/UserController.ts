@@ -2,10 +2,10 @@
  * Created by nick on 16/5/20.
  */
 import e = require('express');
-import BaseController from "./common/BaseController";
-import Const from "../lib/Const";
-import {router} from "../decorators/Web";
-import User from "../models/User";
+import BaseController from './common/BaseController';
+import Const from '../lib/Const';
+import {router} from '../decorators/Web';
+import User from '../models/User';
 
 class UserController extends BaseController {
   @router({path: '/user/create', method: Const.HTTP_METHOD.POST})

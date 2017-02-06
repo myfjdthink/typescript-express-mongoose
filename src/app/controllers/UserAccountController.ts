@@ -2,8 +2,8 @@
  * Created by nick on 16/5/20.
  */
 import e = require('express');
-import BaseController from "./common/BaseController";
-import {router} from "../decorators/Web";
+import BaseController from './common/BaseController';
+import {router} from '../decorators/Web';
 import Order from '../models/Order'
 
 const timeOut = function (time) {

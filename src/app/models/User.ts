@@ -1,7 +1,7 @@
 'use strict';
-import {BaseModel} from "./BaseModel";
+import {BaseModel} from './BaseModel';
 import mongoose = require('mongoose');
-import {Schema, Document} from "mongoose";
+import {Schema, Document} from 'mongoose';
 
 interface IUser extends Document {
   phone: string;

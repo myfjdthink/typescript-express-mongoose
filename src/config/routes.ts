@@ -1,4 +1,4 @@
-import UserController from "../app/controllers/UserController";
+import UserController from '../app/controllers/UserController';
 import OrderController from '../app/controllers/OrderController'
 'use strict';
 

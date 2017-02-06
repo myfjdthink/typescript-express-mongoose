@@ -3,7 +3,7 @@
  */
 import e = require('express');
 import Order from '../models/Order'
-import {router} from "../decorators/Web";
+import {router} from '../decorators/Web';
 
 
 const timeOut = function (time) {

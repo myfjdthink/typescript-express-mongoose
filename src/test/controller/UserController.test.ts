@@ -1,10 +1,10 @@
 /**
  * Created by nick on 2017/1/24.
  */
-import config from "../../config/config";
-import * as superagent from "superagent"
-import * as request from "superagent-bluebird-promise"
-import * as should from "should"
+import config from '../../config/config';
+import * as superagent from 'superagent'
+import * as request from 'superagent-bluebird-promise'
+import * as should from 'should'
 
 describe('Hello function', () => {
   it('should return hello world', function (done) {

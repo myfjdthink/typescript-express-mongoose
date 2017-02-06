@@ -6,3 +6,4 @@ npm-debug.log
 build
 src/*.js
 src/**/*.js
+src/**/*.map

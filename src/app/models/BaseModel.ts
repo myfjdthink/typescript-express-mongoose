@@ -1,6 +1,6 @@
 'use strict';
-import {Document, Schema} from "mongoose";
-import * as mongoose from "mongoose";
+import {Document, Schema} from 'mongoose';
+import * as mongoose from 'mongoose';
 const ObjectId = mongoose.Schema.Types.ObjectId
 /**
  * Module dependencies.
