@@ -1,11 +1,13 @@
 import mongoose = require('mongoose');
 import * as express from "express";
-import * as Logger from "log-debug";
+const bodyParser = require('body-parser');
+import Logger  from "./Logger";
 import {RouterMap} from "./app/decorators/Web";
 import config from "./config/config";
 
 // let a = express.Router()
-
+const fs = require('fs');
+const join = require('path').join;
 const port = config.app.port;
 class ServerLoader {
   //static __DecoratedRouters:Map<{target:any, method:string, path:string}, Function | Function[]> = new Map()
@@ -33,20 +35,23 @@ class ServerLoader {
 
   config() {
     Logger.info('config...');
-    //this.initModels()
+    this.initMiddleware()
     this.initControllers()
     this.registerRouters()
   }
 
-  initModels() {
-    Logger.info('Bootstrap models...');
-    //Bootstrap models
-    const fs = require('fs');
-    const join = require('path').join;
-    const models = join(__dirname, 'app/models');
-    fs.readdirSync(models)
+  initMiddleware() {
+    Logger.info('initMiddleware...');
+    this.app.use(bodyParser.json());
+    this.app.use(bodyParser.urlencoded({extended: false}));
+
+    const middlewares = join(__dirname, 'app/middlewares');
+    fs.readdirSync(middlewares)
       .filter(file => ~file.search(/^[^\.].*\.js$/))
-      .forEach(file => require(join(models, file)));
+      .forEach(file => {
+        Logger.info('use middleware ', file);
+        this.app.use(require(join(middlewares, file)))
+      });
   }
 
   /**
@@ -54,8 +59,6 @@ class ServerLoader {
    */
   initControllers() {
     Logger.info('Bootstrap controllers...');
-    const fs = require('fs');
-    const join = require('path').join;
     const controllers = join(__dirname, 'app/controllers');
     fs.readdirSync(controllers)
       .filter(file => ~file.search(/^[^\.].*\.js$/))
