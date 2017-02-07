@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "MONGO_URI=mongodb://localhost:57017/user_koala node ./build/app.js",
+    "start": "node ./build/app.js",
     "tslint": "gulp tslint",
     "test": "gulp test",
     "build": "gulp compile"

@@ -25,14 +25,14 @@ cnpm i typings -g
 npm build
 ```
 
-会将 src 的 ts 文件编译为 js 文件并输出到 build 目录。
+会将 src 的 ts 文件编译为 js 文件并输出到 build 目录。首次运行或者发布前要 build 一次
 
 ## run
 
 ```
-npm start
+MONGO_URI=mongodb://localhost:57017/user_koala  npm start
 ```
-
+MONGO_URI 是 db 的连接方式。
 实际执行的是 build/app.js 文件。
 
 ## test
