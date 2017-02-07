@@ -27,7 +27,7 @@ _schema.pre('remove', function (next) {
   next();
 });
 
-class Order extends BaseModel<IOrder> {
+class OrderModel extends BaseModel<IOrder> {
 }
-const order = new Order('order', _schema)
-export default order
+const Order = new OrderModel('order', _schema)
+export {Order}

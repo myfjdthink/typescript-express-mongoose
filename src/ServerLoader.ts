@@ -23,7 +23,7 @@ class ServerLoader {
     return this.connectDB()
       .on('error', Logger.error)
       .on('disconnected', Logger.error)
-      .once('open', () => this.listen());
+      .once('open', Logger.info);
   }
 
   connectDB() {
@@ -97,7 +97,10 @@ class ServerLoader {
 
   static initialize() {
     Logger.info('Initialize server')
-    return new ServerLoader().start()
+    const loader = new ServerLoader()
+    const db = loader.start()
+    loader.listen()
+    return db
   }
 }
 

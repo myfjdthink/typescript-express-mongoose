@@ -2,7 +2,7 @@
  * Created by nick on 16/5/20.
  */
 import e = require('express');
-import Order from '../models/Order'
+import {Order} from '../models/Order'
 import {router} from '../decorators/Web';
 
 
