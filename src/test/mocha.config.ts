@@ -3,7 +3,7 @@
 
 process.env.NODE_ENV = 'test'
 import app from '../app';
-import config from '../config/config';
+import Logger from '../Logger';
 import mongoose = require('mongoose');
 mongoose.set('debug', true);
 function ObjectId(id) {
@@ -11,15 +11,11 @@ function ObjectId(id) {
 }
 global['ObjectId'] = ObjectId
 
-before(function () {
-  this.timeout(10000)
-  console.info('test is listening port: ' + config.app.port)
-  app.initialize()
-  // const databaseHelper = require('./helper/database')
-  // await databaseHelper.drop()
-  // // 初始化数据
-  // await databaseHelper.initData()
-  // require('./helper/nock')()
+before(async function () {
+  this.timeout(2000)
+  const conection = app.initialize()
+  await dropDB(conection)
+  Logger.info(' 清空 DB 完成');
 })
 
 after(function (done) {
@@ -27,3 +23,25 @@ after(function (done) {
   done()
   console.info('test closed server and exit!')
 })
+
+/**
+ * 清空测试 DB
+ * @param db
+ * @returns {Promise<any|U|Model<any>|Model<string>>[]}
+ */
+function dropDB(db) {
+  const mNames = db.modelNames()
+  console.info('will clear db collection : ', mNames)
+  const Models = mNames.map((m) => db.model(m))
+  return Models.map(dropCollection)
+}
+function dropCollection(Model) {
+  return new Promise(function (resolve, reject) {
+    Model.collection.drop(function (err) {
+      if (err) {
+        return reject(err)
+      }
+      return resolve()
+    })
+  })
+}

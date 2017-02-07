@@ -11,6 +11,16 @@
 - node 版本 6.x  lts
 - npm 版本 3.x
 
+## tslint
+tslint 是基于 eslint 的代码风格检查工具。
+配置文件是 tslint.json, 要执行代码风格检查请运行
+
+```
+npm tslint
+```
+
+Webstorm 有对 tslint 添加支持，配置一下即可。
+
 ## install
 需要全局安装 typescript
 

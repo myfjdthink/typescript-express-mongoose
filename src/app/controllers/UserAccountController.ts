@@ -28,7 +28,7 @@ class UserAccountController extends BaseController {
   }
 
   @router({
-    method: 'post',
+    method: 'get',
     path: '/user/findOne'
   })
   async findOne(req: e.Request, res) {

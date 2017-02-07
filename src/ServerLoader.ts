@@ -20,7 +20,7 @@ class ServerLoader {
   }
 
   start() {
-    this.connectDB()
+    return this.connectDB()
       .on('error', Logger.error)
       .on('disconnected', Logger.error)
       .once('open', () => this.listen());

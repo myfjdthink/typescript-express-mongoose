@@ -64,11 +64,8 @@
       "check-whitespace"
     ],
     "quotemark": [
-      true,
+      false,
       "single"
-    ],
-    "semicolon": [
-      false
     ],
     "triple-equals": [
       true,
@@ -84,10 +81,7 @@
         "variable-declaration": "nospace"
       }
     ],
-    "variable-name": [
-      true,
-      "ban-keywords"
-    ],
+    "variable-name": [true, "ban-keywords", "check-format"],
     "whitespace": [
       true,
       "check-branch",

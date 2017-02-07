@@ -1,7 +1,7 @@
 'use strict';
-import {BaseModel} from './BaseModel';
+import {BaseModel} from "./BaseModel";
+import {Schema, Document} from "mongoose";
 import mongoose = require('mongoose');
-import {Schema, Document} from 'mongoose';
 
 interface IUser extends Document {
   phone: string;
@@ -14,7 +14,7 @@ const _schema = new Schema({
   createdAt: {type: Date}
 }, {collection: 'user', id: true});
 
-class User extends BaseModel<IUser> {
+class UserModel extends BaseModel<IUser> {
 }
-const user = new User('User', _schema)
-export default user
+const User = new UserModel('User', _schema)
+export {IUser, User}

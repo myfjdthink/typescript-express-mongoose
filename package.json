@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node ./build/app.js",
     "tslint": "./node_modules/.bin/gulp tslint",
-    "test": "./node_modules/.bin/gulp test",
+    "test": "./node_modules/.bin/mocha -t 5s -r should -r co-mocha --recursive ./build/test",
     "build": "./node_modules/.bin/gulp compile"
   },
   "engines": {
@@ -35,6 +35,7 @@
     "@types/should": "^8.1.30",
     "@types/superagent": "^2.0.36",
     "@types/underscore": "^1.7.36",
+    "bluebird": "^3.4.7",
     "co-mocha": "^1.1.3",
     "del": "^2.2.2",
     "gulp": "^3.9.1",

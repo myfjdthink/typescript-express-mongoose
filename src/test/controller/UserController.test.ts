@@ -6,7 +6,7 @@ import * as superagent from 'superagent'
 import * as request from 'superagent-bluebird-promise'
 import * as should from 'should'
 
-describe('Hello function', () => {
+describe.only('User Controller function', () => {
   it('should return hello world', function (done) {
     superagent.get(config.baseUrl + '/user/findOne').end(function (err, res) {
       should.not.exist(err)

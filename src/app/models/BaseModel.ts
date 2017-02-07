@@ -1,5 +1,5 @@
 'use strict';
-import {Document, Schema} from 'mongoose';
+import {Document, Schema, ModelUpdateOptions, QueryFindOneAndUpdateOptions} from 'mongoose';
 import * as mongoose from 'mongoose';
 const ObjectId = mongoose.Schema.Types.ObjectId
 /**
@@ -18,7 +18,7 @@ class BaseModel<T extends Document> {
     this._model = mongoose.model<T>(collection, schema);
   }
 
-  create(user: T): T {
+  create(user: Object): T {
     return this._model.create(user)
   }
 
@@ -28,6 +28,18 @@ class BaseModel<T extends Document> {
 
   findOne(query: Object): T {
     return this._model.findOne(query).exec()
+  }
+
+  update(query: Object, doc: Object, options?: ModelUpdateOptions): {ok: number, nModified: number, n: number} {
+    return this._model.update(query, doc, options).exec()
+  }
+
+  findOneAndUpdate(query: Object, doc: Object, options?: QueryFindOneAndUpdateOptions): T {
+    return this._model.findOneAndUpdate(query, doc, options).exec()
+  }
+
+  remove(conditions: Object): {result: Object} {
+    return this._model.remove(conditions).exec()
   }
 }
 export {BaseModel, ObjectId}
