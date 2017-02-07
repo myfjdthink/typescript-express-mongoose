@@ -15,8 +15,13 @@
 需要全局安装 typescript
 
 ```
-cnpm install typescript@2.1.5 -g
-cnpm i typings -g
+npm install typescript@2.1.5 -g
+npm i typings -g
+```
+然后安装依赖包
+
+```
+npm i
 ```
 
 ## build
@@ -25,7 +30,7 @@ cnpm i typings -g
 npm build
 ```
 
-会将 src 的 ts 文件编译为 js 文件并输出到 build 目录。首次运行或者发布前要 build 一次
+typescript 文件无法直接运行，需要编译成 js，该命令会将 src 的 ts 文件编译为 js 文件并输出到 build 目录。首次运行或者发布前要 build 一次。
 
 ## run
 
