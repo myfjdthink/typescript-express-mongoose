@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "start": "node ./build/app.js",
-    "tslint": "gulp tslint",
-    "test": "gulp test",
-    "build": "gulp compile"
+    "tslint": "./node_modules/.bin/gulp tslint",
+    "test": "./node_modules/.bin/gulp test",
+    "build": "./node_modules/.bin/gulp compile"
   },
   "engines": {
     "node": ">=6.0.0"
