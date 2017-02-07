@@ -9,7 +9,7 @@ let baseConfig = {
     port: PORT,
   },
   baseUrl: 'http://localhost:' + PORT + '',
-  db_uri: 'mongodb://joda:57017/user_koala'
+  db_uri: process.env.MONGO_URI // 'mongodb://joda:57017/user_koala'
 }
 
 const platformConfig = {}
