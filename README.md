@@ -1,8 +1,4 @@
-#klg-direct-invest
-## 背景描述
-直投项目，其他 P2P 平台可以直接发送放款请求到该项目。
-经过风控后，系统将借款人录入标的，生成放款订单。
-由财务审核放款订单后调用第三方支付平台接口给借款人直接放款。
+#typescript-express-mongoose
 
 ## 开发语言
 使用 typescript 开发。
