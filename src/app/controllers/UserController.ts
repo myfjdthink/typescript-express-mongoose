@@ -13,9 +13,9 @@ class UserController extends BaseController {
   async create(req: e.Request, res: e.Response) {
     const user = req.body
     console.log('UserAccountController', 'create ', user);
-    const c_user = await User.create(user)
-    console.log('UserAccountController', 'create result', c_user);
-    res.send(c_user);
+    const cUser = await User.create(user)
+    console.log('UserAccountController', 'create result', cUser);
+    res.send(cUser);
   }
 
   @router({

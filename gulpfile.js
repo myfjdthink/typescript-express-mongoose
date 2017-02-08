@@ -6,6 +6,7 @@ const tslint = require("gulp-tslint");
 const tsProject = ts.createProject("tsconfig.json");
 
 gulp.task("default", ["compile", "watch", "nodemon"]);
+gulp.task("build", ["clean", "compile"]);
 
 gulp.task("watch", function () {
   return gulp.watch("src/**/*.*", ["compile"]);

@@ -10,7 +10,7 @@ const fs = require('fs');
 const join = require('path').join;
 const port = config.app.port;
 class ServerLoader {
-  // static __DecoratedRouters:Map<{target:any, method:string, path:string}, Function | Function[]> = new Map()
+  // static decoratedRouters:Map<{target:any, method:string, path:string}, Function | Function[]> = new Map()
   private router: any
   private app: express.Application
 
@@ -78,7 +78,7 @@ class ServerLoader {
    */
   registerRouters() {
     Logger.info('registerRouters...');
-    for (let [config, controller] of RouterMap.__DecoratedRouters) {
+    for (let [config, controller] of RouterMap.decoratedRouters) {
       let controllers = Array.isArray(controller) ? controller : [controller]
       controllers.forEach((controller) => {
         Logger.info('find router', config.method || 'all', config.path, controller.name);

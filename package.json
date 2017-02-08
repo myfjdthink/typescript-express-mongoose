@@ -6,7 +6,7 @@
     "start": "node ./build/app.js",
     "tslint": "./node_modules/.bin/gulp tslint",
     "test": "./node_modules/.bin/mocha -t 5s -r should -r co-mocha --recursive ./build/test",
-    "build": "./node_modules/.bin/gulp compile"
+    "build": "./node_modules/.bin/gulp build"
   },
   "engines": {
     "node": ">=6.0.0"

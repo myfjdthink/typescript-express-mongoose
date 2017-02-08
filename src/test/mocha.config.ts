@@ -68,12 +68,12 @@ async function fixture(connection) {
 function dropDB(db) {
   const mNames = db.modelNames()
   console.info('will clear db collection : ', mNames)
-  const Models = mNames.map((m) => db.model(m))
-  return Models.map(dropCollection)
+  const models = mNames.map((m) => db.model(m))
+  return models.map(dropCollection)
 }
-function dropCollection(Model) {
+function dropCollection(model) {
   return new Promise(function (resolve, reject) {
-    Model.collection.drop(function (err) {
+    model.collection.drop(function (err) {
       if (err) {
         return reject(err)
       }
