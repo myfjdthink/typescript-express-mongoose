@@ -53,5 +53,19 @@ MONGO_URI 是 db 的连接方式。
 ## test
 
 ```
-npm test
+MONGO_URI=mongodb://localhost:57017/test npm test
 ```
+
+## 项目结构
+app
+--controllers
+--decorators
+--lib
+--middleware
+--models
+
+### 路由
+直接在 Controller 方法上使用注解
+@router('get /user/findOne')
+如果没有直接 url 则默认是 /controller/method
+
