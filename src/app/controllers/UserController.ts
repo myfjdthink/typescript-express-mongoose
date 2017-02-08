@@ -9,7 +9,7 @@ import {router} from '../decorators/Web';
 import {User} from '../models/User';
 
 class UserController extends BaseController {
-  @router({path: '/user/create', method: Const.HTTP_METHOD.POST})
+  @router('post /user/create')
   async create(req: e.Request, res: e.Response) {
     const user = req.body
     console.log('UserAccountController', 'create ', user);
@@ -18,10 +18,7 @@ class UserController extends BaseController {
     res.send(cUser);
   }
 
-  @router({
-    method: 'get',
-    path: '/user/findOne'
-  })
+  @router()
   async findOne(req: e.Request, res) {
     const ud = req.query.ud
     Logger.info('ud ', ud)
